@@ -5,7 +5,7 @@ using Firebase;
 using UnityEngine.Events;
 using Firebase.Extensions;
 
-public class FirebaseInit : MonoBehaviour
+public class FirebasInit : MonoBehaviour
 {
     public UnityEvent OnFirebaseInitialized = new UnityEvent();
 

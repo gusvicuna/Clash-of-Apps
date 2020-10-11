@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
-{
+public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
     //Screen object variables
@@ -11,14 +10,11 @@ public class UIManager : MonoBehaviour
     public GameObject registerUI;
     public GameObject socialUI;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
+    private void Awake() {
+        if (instance == null) {
             instance = this;
         }
-        else if (instance != null)
-        {
+        else if (instance != null) {
             Debug.Log("Instance already exists, destroying object!");
             Destroy(this);
         }
@@ -37,8 +33,7 @@ public class UIManager : MonoBehaviour
         registerUI.SetActive(true);
         socialUI.SetActive(false);
     }
-    public void FriendRequestScreen()
-    {
+    public void FriendRequestScreen() {
         loginUI.SetActive(false);
         registerUI.SetActive(false);
         socialUI.SetActive(true);
