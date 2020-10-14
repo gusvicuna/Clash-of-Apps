@@ -13,7 +13,7 @@ public class test_friendrequest : MonoBehaviour
     }
     public void SendFriendRequest()
     {
-        //_dbm.PostFriendRequestToDatabase();
+        _dbm.PostFriendRequestToDatabase();
     }
 
     public void ConsoleLog()
