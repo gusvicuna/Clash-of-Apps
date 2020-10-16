@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class CountryBehaviour : MonoBehaviour
 {
-    public int id;
-    public string countryName = "";
-
-    [HideInInspector]
-    public GameObject ownerApp;
+    public Country country;
     [HideInInspector]
     public GameObject[] influencers;
 

@@ -1,18 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class App : MonoBehaviour
+[Serializable]
+public class App
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private static int _idCounter;
+
+    [HideInInspector]
+    public int id;
+    public string appName;
+    public Color color;
+    [HideInInspector]
+    public List<Country> countries;
+
+    public App(string appName, Color color) {
+        id = _idCounter;
+        _idCounter++;
+        this.appName = appName;
+        this.color = color;
+        countries = new List<Country>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

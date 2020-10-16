@@ -414,6 +414,26 @@ PrefabInstance:
       propertyPath: m_Spline.m_ControlPoints.Array.data[11].corner
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.data[0]
+      value: 
+      objectReference: {fileID: 1667694490}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.data[1]
+      value: 
+      objectReference: {fileID: 750433957}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.countryName
+      value: Venezuela
+      objectReference: {fileID: 0}
     - target: {fileID: 5589798193511668713, guid: f56d96db3f91d3e4c9808ccd677881b8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -506,6 +526,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f56d96db3f91d3e4c9808ccd677881b8, type: 3}
+--- !u!114 &398293327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 398293326}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d750f9c52c6753a4a9535bd4822b2597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &573220437
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +781,31 @@ PrefabInstance:
       propertyPath: m_Spline.m_ControlPoints.Array.data[11].corner
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.countryName
+      value: "Per\xFA"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.data[0]
+      value: 
+      objectReference: {fileID: 398293327}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.data[1]
+      value: 
+      objectReference: {fileID: 1667694490}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.data[2]
+      value: 
+      objectReference: {fileID: 1193468449}
     - target: {fileID: 5589798193511668713, guid: f56d96db3f91d3e4c9808ccd677881b8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -841,6 +898,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f56d96db3f91d3e4c9808ccd677881b8, type: 3}
+--- !u!114 &750433957 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 750433956}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d750f9c52c6753a4a9535bd4822b2597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &969922950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1154,26 @@ PrefabInstance:
       propertyPath: m_Spline.m_ControlPoints.Array.data[11].corner
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.countryName
+      value: Chile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.data[0]
+      value: 
+      objectReference: {fileID: 1667694490}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.data[1]
+      value: 
+      objectReference: {fileID: 750433957}
     - target: {fileID: 5589798193511668713, guid: f56d96db3f91d3e4c9808ccd677881b8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1187,6 +1276,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f56d96db3f91d3e4c9808ccd677881b8, type: 3}
+--- !u!114 &1193468449 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1193468448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d750f9c52c6753a4a9535bd4822b2597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1667694489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1559,6 +1660,31 @@ PrefabInstance:
       propertyPath: m_Spline.m_ControlPoints.Array.data[19].corner
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.countryName
+      value: Brazil
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.data[0]
+      value: 
+      objectReference: {fileID: 1193468449}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.data[1]
+      value: 
+      objectReference: {fileID: 750433957}
+    - target: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+        type: 3}
+      propertyPath: country.adjacentCountries.Array.data[2]
+      value: 
+      objectReference: {fileID: 398293327}
     - target: {fileID: 5589798193511668713, guid: f56d96db3f91d3e4c9808ccd677881b8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1651,6 +1777,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f56d96db3f91d3e4c9808ccd677881b8, type: 3}
+--- !u!114 &1667694490 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4998895586606926431, guid: f56d96db3f91d3e4c9808ccd677881b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1667694489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d750f9c52c6753a4a9535bd4822b2597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2087957216
 GameObject:
   m_ObjectHideFlags: 0
