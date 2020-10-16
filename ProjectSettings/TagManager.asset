@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Country
+  - Influencer
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - 
   - Country
-  - 
+  - Influencer
   - 
   - 
   - 
@@ -44,4 +45,7 @@ TagManager:
     locked: 0
   - name: Map
     uniqueID: 38743279
+    locked: 0
+  - name: Influencer
+    uniqueID: 332273065
     locked: 0
