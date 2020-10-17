@@ -5,6 +5,10 @@ using UnityEngine;
 public class CountryBehaviour : MonoBehaviour
 {
     public Country country;
+
+    public string countryName;
+    public List<CountryBehaviour> adjacentCountries;
+
     [HideInInspector]
     public GameObject[] influencers;
 

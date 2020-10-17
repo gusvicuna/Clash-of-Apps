@@ -11,18 +11,14 @@ public class Country {
     [HideInInspector]
     public int id;
     [HideInInspector]
-    public int influencers = 1;
-    public string countryName;
+    public List<InfluencerBehaviour> influencers;
     [HideInInspector]
-    public App ownerApp;
-    public List<CountryBehaviour> adjacentCountries;
+    public App owner;
 
-    public Country(string countryName, App ownerApp, List<CountryBehaviour> adjacentCountries) {
+    public Country(App ownerApp) {
         id = _idCounter;
         _idCounter++;
-        this.adjacentCountries = adjacentCountries;
-        this.countryName = countryName;
-        this.ownerApp = ownerApp;
+        this.owner = ownerApp;
     }
 
 }
