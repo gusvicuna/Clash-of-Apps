@@ -8,6 +8,7 @@ public class App
 {
     public string appName;
     public Color color;
+    public Sprite logo;
 
     public App(string appName, Color color) {
         this.appName = appName;
