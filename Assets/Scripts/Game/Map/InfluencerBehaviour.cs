@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class InfluencerBehaviour : MonoBehaviour
 {
-    private static int idCounter;
-    [HideInInspector]
-    public int id;
-    public string influencerName;
+    public Influencer influencerData;
+    public CountryBehaviour country;
+    public SpriteRenderer sprite;
+
+    private void Start() {
+        SetColor();
+    }
+
+    public void SetColor() {
+        sprite.color = country.owner.app.color;
+    }
+
+    public void ChangeCountry(CountryBehaviour country) {
+        this.country = country;
+    }
 }

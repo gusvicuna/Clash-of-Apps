@@ -189,14 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d750f9c52c6753a4a9535bd4822b2597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  country:
-    id: 0
-    influencers: 0
-    countryName: 
-    ownerApp:
-      id: 0
-      appName: 
-      color: {r: 0, g: 0, b: 0, a: 0}
-      countries: []
-    adjacentCountries: []
+  countryName: 
+  adjacentCountries: []
   influencers: []
+  publicType: 0
+  sprite: {fileID: 9036456417608181907}

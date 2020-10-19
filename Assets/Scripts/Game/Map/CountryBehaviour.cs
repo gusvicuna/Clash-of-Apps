@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.U2D;
+using UnityEngine.U2D;
 
 public class CountryBehaviour : MonoBehaviour
 {
@@ -14,10 +16,15 @@ public class CountryBehaviour : MonoBehaviour
     [HideInInspector]
     public PublicType publicType;
 
-    // Start is called before the first frame update
-    void Start() 
-    {
+    public SpriteShapeRenderer sprite;
 
+    // Start is called before the first frame update
+    void Start() {
+        SetColor();
+    }
+
+    private void SetColor() {
+        sprite.color = owner.app.color;
     }
 
     // Update is called once per frame
