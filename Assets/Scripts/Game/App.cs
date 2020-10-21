@@ -1,18 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class App : MonoBehaviour
+[Serializable]
+public class App
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string appName;
+    public Color color;
+    public Sprite logo;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public App(string appName, Color color) {
+        this.appName = appName;
+        this.color = color;
     }
 }
