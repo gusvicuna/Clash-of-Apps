@@ -14,10 +14,7 @@ public class test_friendrequest : MonoBehaviour
     public void SendFriendRequest()
     {
         //_dbm.PostFriendRequestToDatabase();
-    }
-
-    public void ConsoleLog()
-    {
         Debug.Log("Sending friend request");
     }
+
 }

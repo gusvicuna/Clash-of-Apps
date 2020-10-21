@@ -8,7 +8,6 @@ public class UIManager : MonoBehaviour {
     //Screen object variables
     public GameObject loginUI;
     public GameObject registerUI;
-    public GameObject socialUI;
     public GameObject startUI;
 
     private void Awake() {
@@ -26,27 +25,18 @@ public class UIManager : MonoBehaviour {
     {
         loginUI.SetActive(true);
         registerUI.SetActive(false);
-        socialUI.SetActive(false);
         startUI.SetActive(false);
     }
     public void RegisterScreen() // Regester button
     {
         loginUI.SetActive(false);
         registerUI.SetActive(true);
-        socialUI.SetActive(false);
-        startUI.SetActive(false);
-    }
-    public void FriendRequestScreen() {
-        loginUI.SetActive(false);
-        registerUI.SetActive(false);
-        socialUI.SetActive(true);
         startUI.SetActive(false);
     }
     public void StartScreen()
     {
         loginUI.SetActive(false);
         registerUI.SetActive(false);
-        socialUI.SetActive(false);
         startUI.SetActive(true);
     }
 }
