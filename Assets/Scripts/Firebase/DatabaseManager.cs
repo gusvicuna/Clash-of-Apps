@@ -13,7 +13,7 @@ public class DatabaseManager : MonoBehaviour
     //private FirebaseDatabase _database;
     //private DatabaseReference _reference;
 
-    private FirebasInit _init;
+   // private FirebasInit _init;
 
     private void Awake() {
         if (instance == null) {

@@ -107,6 +107,7 @@ public class AuthManager : MonoBehaviour
             Debug.LogFormat("User signed in successfully: {0} ({1})", AUser.DisplayName, AUser.Email);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
+            UIManager.instance.FriendRequestScreen();
         }
     }
 
