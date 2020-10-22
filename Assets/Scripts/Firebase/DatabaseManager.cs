@@ -2,41 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Firebase;
-//using Firebase.Database;
+using Firebase.Database;
 using Firebase.Unity.Editor;
 
 public class DatabaseManager : MonoBehaviour
 {
+    DatabaseReference reference;
 
+    void Start()
+    {
+        // Set up the Editor before calling into the realtime database.
+        //FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://clashofapps-1b287.firebaseio.com/"); //Obsolete
+        System.Uri db_uri = new System.Uri("https://clashofapps-1b287.firebaseio.com/");
+        FirebaseApp.DefaultInstance.Options.DatabaseUrl = db_uri;
 
-    public static DatabaseManager instance;
-    //private FirebaseDatabase _database;
-    //private DatabaseReference _reference;
-
-   // private FirebasInit _init;
-
-    private void Awake() {
-        if (instance == null) {
-            instance = this;
-        }
-        else if (instance != null) {
-            Debug.Log("Instance already exists, destroying object!");
-            Destroy(this);
-        }
+        // Get the root reference location of the database.
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
-    //private void Start() {
-    //    _init = GetComponent<FirebasInit>();
-    //    _init.OnFirebaseInitialized.AddListener(GetDatabaseInstance);
-    //}
 
-    //void GetDatabaseInstance() {
-    //    _database = FirebaseDatabase.DefaultInstance;
-    //    _reference = _database.RootReference;
-    //    Debug.Log("Database instanciated");
-    //}
-    //public void PostFriendRequestToDatabase()
-    //{
-    //    _reference.Child("notifications").Child("gus").Child("friend_requests").Child("Maria").SetValueAsync(true);
-    //}
+    void Update()
+    {
+
+    }
+
+    public void sendFriendRequest(FriendRequest fr)
+    {
+        reference.Child("friend_requests").Child(fr.reciever_user).Child(fr.sender_user.username).SetValueAsync(fr);
+    }
 }

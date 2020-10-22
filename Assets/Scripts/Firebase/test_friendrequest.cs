@@ -6,14 +6,13 @@ using TMPro;
 public class test_friendrequest : MonoBehaviour
 {
     public TMP_InputField FriendUsernameField;
+    public User current_player;
 
     private DatabaseManager _dbm;
-    private void Start() {
-        _dbm = DatabaseManager.instance;
-    }
     public void SendFriendRequest()
     {
         //_dbm.PostFriendRequestToDatabase();
+        _dbm.sendFriendRequest(new FriendRequest(current_player, FriendUsernameField.text));
         Debug.Log("Sending friend request");
     }
 
