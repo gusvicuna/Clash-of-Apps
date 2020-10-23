@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InfluencerBehaviour : MonoBehaviour
 {
-    public Influencer influencerData;
+    public InfluencerDB influencerData;
     public CountryBehaviour country;
     public SpriteRenderer sprite;
 
