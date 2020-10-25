@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Influencer
+[Serializable]
+public class InfluencerDB
 {
     public static int idCounter;
     public int id;
@@ -10,11 +12,18 @@ public class Influencer
     public PublicType type;
     public int level;
 
-    public Influencer(string name, PublicType type, int level, int id = -1) {
-        influencerName = name;
+    public InfluencerDB(PublicType type, string name, int level, int id) {
         this.type = type;
+        influencerName = name;
         this.level = level;
-        if (id < 0) GenerateId();
+        this.id = id;
+    }
+
+    public InfluencerDB(PublicType type) {
+        this.type = type;
+        level = 1;
+        influencerName = InfluencerHelper.GetRandomName();
+        GenerateId();
     }
     public void GenerateId() {
         id = idCounter;
