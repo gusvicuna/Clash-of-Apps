@@ -1,29 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class TurnManager : MonoBehaviour
 {
-    public int playerTurn; //A qué jugador le toca jugar.
-    public int maxTurns;
-    public int turnNumber;
+    public TurnInfo turnInfo;
 
-    public UnityEvent onTurnsEnded;
-
-    private GameManager gameManager;
+    private GameManager _gameManager;
 
     void Start()
     {
-        gameManager = GameManager.instance;
+        _gameManager = GameManager.instance;
+        _gameManager.onFaseChanged += CheckIfEndOfTurn;
     }
 
     public void EndTurn() {
-        playerTurn += 1;
-        if (playerTurn >= gameManager.players.Count) {
-            playerTurn = 0;
-            turnNumber += 1;
-            if (turnNumber > maxTurns) onTurnsEnded.Invoke();
+        turnInfo.playerTurn += 1;
+        int playerCount = _gameManager.matchInfo.players.Count;
+        if (turnInfo.playerTurn >= playerCount) {
+            turnInfo.playerTurn = 0;
+            turnInfo.turnNumber += 1;
+            if (turnInfo.turnNumber > turnInfo.maxTurns) {
+                _gameManager.EndGame();
+            }
         }
+    }
+
+    public void CheckIfEndOfTurn(GameFase fase) {
+        if (fase.Equals(GameFase.Buy)) EndTurn();
     }
 }
