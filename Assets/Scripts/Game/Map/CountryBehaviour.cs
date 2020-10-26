@@ -43,6 +43,7 @@ public class CountryBehaviour : MonoBehaviour
 
     public void AddInfluencer(InfluencerBehaviour newInfluencer) {
         influencers.Add(newInfluencer);
+        newInfluencer.ChangeCountry(this);
     }
 
     public void RemoveInfluencer(InfluencerBehaviour influencer) {

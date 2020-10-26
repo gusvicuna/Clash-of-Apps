@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
+    public static TurnManager instance;
     public TurnInfo turnInfo;
 
     private GameManager _gameManager;
 
     void Start()
     {
+        if (instance == null) instance = this;
         _gameManager = GameManager.instance;
         _gameManager.onFaseChanged += CheckIfEndOfTurn;
     }
@@ -27,6 +29,6 @@ public class TurnManager : MonoBehaviour
     }
 
     public void CheckIfEndOfTurn(GameFase fase) {
-        if (fase.Equals(GameFase.Buy)) EndTurn();
+        if (fase.Equals(GameFase.Hire)) EndTurn();
     }
 }

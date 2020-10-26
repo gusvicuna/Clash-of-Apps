@@ -192,5 +192,14 @@ MonoBehaviour:
   countryName: 
   adjacentCountries: []
   influencers: []
+  owner:
+    app:
+      id: 0
+      appName: 
+      color: {r: 0, g: 0, b: 0, a: 0}
+      logo: {fileID: 0}
+    countries: []
+    influencersToPurchase: 0
+    turnNumber: 0
   publicType: 0
   sprite: {fileID: 9036456417608181907}
