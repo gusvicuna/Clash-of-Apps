@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class App
 {
+    public int id;
     public string appName;
     public Color color;
     public Sprite logo;
