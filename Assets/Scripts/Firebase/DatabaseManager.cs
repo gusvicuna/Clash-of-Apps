@@ -7,8 +7,6 @@ using Firebase.Unity.Editor;
 
 public class DatabaseManager : MonoBehaviour
 {
-
-
     public static DatabaseManager instance;
     //private FirebaseDatabase _database;
     //private DatabaseReference _reference;
@@ -39,4 +37,6 @@ public class DatabaseManager : MonoBehaviour
     //{
     //    _reference.Child("notifications").Child("gus").Child("friend_requests").Child("Maria").SetValueAsync(true);
     //}
+
+
 }

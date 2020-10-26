@@ -13,10 +13,10 @@ public class TurnManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         _gameManager = GameManager.instance;
-        _gameManager.onFaseChanged += CheckIfEndOfTurn;
     }
 
     public void EndTurn() {
+        _gameManager.onEndTurn.Invoke();
         turnInfo.playerTurn += 1;
         int playerCount = _gameManager.matchInfo.players.Count;
         if (turnInfo.playerTurn >= playerCount) {
@@ -26,9 +26,5 @@ public class TurnManager : MonoBehaviour
                 _gameManager.EndGame();
             }
         }
-    }
-
-    public void CheckIfEndOfTurn(GameFase fase) {
-        if (fase.Equals(GameFase.Hire)) EndTurn();
     }
 }

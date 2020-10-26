@@ -36,6 +36,11 @@ public class GameUIManager : MonoBehaviour
 
         gameManager.onFaseChanged += ChangeFase;
         gameManager.onInitGame.AddListener(SetFase);
+        gameManager.onEndTurn.AddListener(HideUI);
+    }
+
+    private void HideUI() {
+        nextTurnUI.SetActive(false);
     }
 
     // Update is called once per frame
