@@ -6,13 +6,15 @@ using UnityEngine;
 [Serializable]
 public class Player
 {
-    public App app;
+    public string name;
+    public Color color;
     public List<CountryBehaviour> countries;
     public int influencersToPurchase;
     public int turnNumber;
 
-    public Player(App app, int influencersToPurchase, int turnNumber) {
-        this.app = app;
+    public Player(string name, Color color, int influencersToPurchase, int turnNumber) {
+        this.name = name;
+        this.color = color;
         countries = new List<CountryBehaviour>();
         this.influencersToPurchase = influencersToPurchase;
         this.turnNumber = turnNumber;

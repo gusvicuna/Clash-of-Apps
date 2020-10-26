@@ -1,39 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-
 using UnityEngine.U2D;
+using UnityEngine.UI;
 
 public class CountryBehaviour : MonoBehaviour
 {
     public string countryName;
     public List<CountryBehaviour> adjacentCountries;
-
-    [HideInInspector]
-    public List<InfluencerBehaviour> influencers;
-    [HideInInspector]
+    public int influencers;
     public Player owner;
-    [HideInInspector]
-    public PublicType publicType;
 
     public SpriteShapeRenderer sprite;
+    public TextMeshPro influencersUI;
 
-    // Start is called before the first frame update
-    void Start() {
-        SetColor();
+    private void Start() {
+        GameManager.instance.allCountries.Add(this);
+        GameManager.instance.onInitGame.AddListener(SetVisualInfo);
+    }
+    private void SetVisualInfo() {
+        sprite.color = owner.color;
+        influencersUI.text = influencers.ToString();
     }
 
-    private void SetColor() {
-        sprite.color = owner.app.color;
+    public void SetInfo(int influencers, Player owner) {
+        this.owner = owner;
+        this.influencers = influencers;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void AttackCountry(int influencers, string defenderCountryName, Dictionary<int,int> results = null) {
+    public void AttackCountry(int influencers, string defenderCountryName) {
 
     }
 
@@ -41,11 +37,11 @@ public class CountryBehaviour : MonoBehaviour
         owner = newOwner;
     }
 
-    public void AddInfluencer(InfluencerBehaviour newInfluencer) {
-        influencers.Add(newInfluencer);
+    public void AddInfluencer() {
+        influencers += 1;
     }
 
-    public void RemoveInfluencer(InfluencerBehaviour influencer) {
-        influencers.Remove(influencer);
+    public void RemoveInfluencer() {
+        influencers -= 1;
     }
 }
