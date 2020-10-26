@@ -16,18 +16,16 @@ public class FriendRequestHandler : MonoBehaviour
 
     private void Start()
     {
-        database.ListenForFriendRequest(InstantiateFriendRequest, Debug.Log);
+        //database.ListenForFriendRequest(InstantiateFriendRequest, Debug.Log);
     }
 
     public void SendFriendRequest() => 
-        database.SendFriendRequest(new FriendRequest(current_user, username_if.text), 
-            () => Debug.Log("Friend request couldnt be sent"), 
-            Debug.Log);
+        database.PostFriendRequestToDatabase(new FriendRequest(current_user, username_if.text));
 
     private void InstantiateFriendRequest(FriendRequest fr)
     {
         var newFr = Instantiate(friendRequestPrefab, transform.position, Quaternion.identity);
         newFr.transform.SetParent(friendRequestsContainer, false);
-        newFr.GetComponent<TextMeshProUGUI>().text = $"{fr.sender_user.username} wants to be your friend";
+        newFr.GetComponent<TextMeshProUGUI>().text = $"{fr.sender_user} wants to be your friend";
     }
 }

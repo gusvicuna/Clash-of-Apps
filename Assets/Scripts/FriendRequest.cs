@@ -6,14 +6,14 @@ using UnityEngine;
 [Serializable]
 public class FriendRequest
 {
-    public User sender_user;
+    public string sender_user;
     public string reciever_user;
     public bool accepted;
     public bool expired;
 
     public FriendRequest(User sender, string reciever)
     {
-        sender_user = sender;
+        sender_user = sender.username;
         reciever_user = reciever;
         accepted = false;
         expired = false;
