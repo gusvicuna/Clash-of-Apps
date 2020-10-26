@@ -4,80 +4,87 @@ using UnityEngine;
 using Firebase;
 using Firebase.Database;
 using Firebase.Unity.Editor;
+using System;
 
 public class DatabaseManager : MonoBehaviour
 {
-    public DependencyStatus dependencyStatus;
-
+    FirebaseApp app;
     DatabaseReference reference;
-    FirebaseDatabase fb_database;
 
-    [System.Obsolete]
-    private void Start()
+    private void Awake()
     {
-        // Set up the Editor before calling into the realtime database.
-        System.Uri db_uri = new System.Uri("https://clashofapps-1b287.firebaseio.com/");
-        //FirebaseApp.DefaultInstance.Options.DatabaseUrl = db_uri;
+        app = Firebase.FirebaseApp.DefaultInstance;
+        System.Uri db_uri = new Uri("https://clashofapps-1b287.firebaseio.com/");
+        app.Options.DatabaseUrl = db_uri;
+        Debug.Log($"Firebase url: {app.Options.DatabaseUrl}");
+
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
 
         // Get the root reference location of the database.
-        //reference = FirebaseDatabase.DefaultInstance.RootReference;
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+        //DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
+        /*
+        if (true)
         {
-            dependencyStatus = task.Result;
-            if (dependencyStatus == DependencyStatus.Available)
+            // Create and hold a reference to your FirebaseApp,
+            // where app is a Firebase.FirebaseApp property of your application class.
+            app = Firebase.FirebaseApp.DefaultInstance;
+
+            // Set a flag here to indicate whether Firebase is ready to use by your app.
+            Debug.Log("Firebase available");
+            System.Uri db_uri = new Uri("https://clashofapps-1b287.firebaseio.com/");
+            app.Options.DatabaseUrl = db_uri;
+            //reference = FirebaseDatabase.DefaultInstance.RootReference;
+        }
+        /*
+        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
+            var dependencyStatus = task.Result;
+            if (dependencyStatus == Firebase.DependencyStatus.Available)
             {
-                //If they are avalible Initialize Firebase
-                InitializeFirebase();
-                //FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://clashofapps-1b287.firebaseio.com/");
-                FirebaseApp.DefaultInstance.Options.DatabaseUrl = db_uri;
+                // Create and hold a reference to your FirebaseApp,
+                // where app is a Firebase.FirebaseApp property of your application class.
+                app = Firebase.FirebaseApp.DefaultInstance;
+
+                // Set a flag here to indicate whether Firebase is ready to use by your app.
+                Debug.Log("Firebase available");
+                System.Uri db_uri = new Uri("https://clashofapps-1b287.firebaseio.com/");
+                app.Options.DatabaseUrl = db_uri;
+                reference = FirebaseDatabase.DefaultInstance.RootReference;
             }
             else
             {
-                Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
+                Debug.LogError(System.String.Format(
+                  "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
+                // Firebase Unity SDK is not safe to use here.
             }
+        });
+        */
+    }
+
+    public void SendFriendRequest(FriendRequest fr, Action callback, Action<AggregateException> fallback)
+    {
+        Debug.Log("Sending friend request");
+        //reference.Child("FriendRequests").Child(fr.reciever_user).SetValueAsync(fr.sender_user.username);
+        reference.Child("friend_requests").Push().SetValueAsync(fr).ContinueWith(task =>
+        {
+            if (task.IsCanceled || task.IsFaulted) fallback(task.Exception);
+            else callback();
         });
     }
 
-    private void InitializeFirebase()
+    public void ListenForFriendRequest(Action<FriendRequest> callback, Action<AggregateException> fallback)
     {
-        Debug.Log("Setting up Firebase Database");
-        //Set the authentication instance object
-        fb_database = FirebaseDatabase.DefaultInstance;
-    }
+        void CurrentListener(object o, ChildChangedEventArgs args)
+        {
+            if (args.DatabaseError != null)
+            {
+                fallback(new AggregateException(new Exception(args.DatabaseError.Message)));
+                Debug.Log(args.DatabaseError.Message);
+                return;
+            }
 
-    public void SendFriendRequest(FriendRequest fr)
-    {
-        reference.Child("FriendRequests").Child(fr.reciever_user).SetValueAsync(fr.sender_user.username);
-    }
-    /*
-    public static DatabaseManager instance;
-    //private FirebaseDatabase _database;
-    //private DatabaseReference _reference;
-
-   // private FirebasInit _init;
-
-    private void Awake() {
-        if (instance == null) {
-            instance = this;
+            callback(args.Snapshot.Value as FriendRequest);
         }
-        else if (instance != null) {
-            Debug.Log("Instance already exists, destroying object!");
-            Destroy(this);
-        }
+
+        reference.Child("friend_requests").ChildAdded += CurrentListener;
     }
-
-    //private void Start() {
-    //    _init = GetComponent<FirebasInit>();
-    //    _init.OnFirebaseInitialized.AddListener(GetDatabaseInstance);
-    //}
-
-    //void GetDatabaseInstance() {
-    //    _database = FirebaseDatabase.DefaultInstance;
-    //    _reference = _database.RootReference;
-    //    Debug.Log("Database instanciated");
-    //}
-    //public void PostFriendRequestToDatabase()
-    //{
-    //    _reference.Child("notifications").Child("gus").Child("friend_requests").Child("Maria").SetValueAsync(true);
-    //}*/
 }
