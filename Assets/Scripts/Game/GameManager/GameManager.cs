@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -62,6 +63,10 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         InitGame();
         yield return new WaitForSeconds(1);
+    }
+
+    public void ExitGame() {
+        SceneManager.LoadScene("MainMenu");
     }
 }
 public enum GameFase {
